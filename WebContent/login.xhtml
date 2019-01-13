@@ -11,16 +11,16 @@
 
 		<h:outputLabel value="Ingrese usuario" />
 		<br />
-		<h:inputText type="text" value="#{login.user}" />
+		<h:inputText type="text" value="#{loginBean.user}" />
 		<br />
 		<br />
 		<h:outputLabel value="Ingrese contraseña: " />
 		<br />
-		<h:inputText type="password" value="#{login.pwd}" />
+		<h:inputText type="password" value="#{loginBean.pwd}" />
 		<br />
 		<br />
 
-		<h:commandButton actionListener="#{login.validateUsernamePassword()}"
+		<h:commandButton actionListener="#{loginBean.validateUsernamePassword()}"
 			value="Ingresar" />
 
 	</h:form>
