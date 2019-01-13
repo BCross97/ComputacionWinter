@@ -2,6 +2,8 @@ package co.edu.icesi.mio.bean;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.ejb.EJB;
@@ -15,6 +17,7 @@ import org.primefaces.component.inputtext.InputText;
 
 import co.edu.icesi.mio.logic.ITmio1_Conductores_Logic;
 import co.edu.icesi.mio.logic.ITmio1_Rutas_Logic;
+import co.edu.icesi.mio.model.Tmio1Ruta;
 
 @ManagedBean
 @SessionScoped
@@ -25,7 +28,6 @@ public class RutasCrearActualizar implements Serializable {
 	 */
 	private static final long serialVersionUID = -3707989183561681006L;
 
-
 	private InputText activa;
 	private InputText descripcion;
 	private InputText numero;
@@ -33,7 +35,7 @@ public class RutasCrearActualizar implements Serializable {
 	private Date fechaInicio;
 	private Date horaFin;
 	private Date hotaInicio;
-	
+
 	@EJB
 	private ITmio1_Rutas_Logic rutasLogic;
 
@@ -42,15 +44,24 @@ public class RutasCrearActualizar implements Serializable {
 	}
 
 	public void crear() {
-		
-		FacesContext context = FacesContext.getCurrentInstance();
-		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
-		try {
-			FacesContext.getCurrentInstance().getExternalContext()
-					.redirect(request.getContextPath() + "/pages/Rutas/RutasMainBean.xhtml");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+
+		Tmio1Ruta ruta = new Tmio1Ruta();
+		ruta.setActiva(activa.getValue().toString());
+		ruta.setDescripcion(descripcion.getValue().toString());
+		ruta.setNumero(numero.getValue().toString());
+		ruta.setDiaFin(new BigDecimal(fechaFin.getDay()));
+		ruta.setDiaInicio(new BigDecimal(fechaInicio.getDay()));
+		ruta.setHoraFin(new BigDecimal(horaFin.getTime()));
+		ruta.setHoraInicio(new BigDecimal(hotaInicio.getTime()));
+		rutasLogic.create(ruta);
+//		FacesContext context = FacesContext.getCurrentInstance();
+//		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+//		try {
+//			FacesContext.getCurrentInstance().getExternalContext()
+//					.redirect(request.getContextPath() + "/pages/Rutas/RutasMainBean.xhtml");
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 	public void eliminar() {

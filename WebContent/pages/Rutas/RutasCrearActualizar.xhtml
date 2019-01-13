@@ -13,7 +13,7 @@
 
 			<p:panelGrid columns="2">
 				<h:outputLabel value="Activa" />
-				<p:inputText binding="#{rutasCrearActualizar.activa}"/>
+				<p:inputText binding="#{rutasCrearActualizar.activa}" />
 			</p:panelGrid>
 
 			<p:panelGrid columns="2">
@@ -23,33 +23,40 @@
 
 			<p:panelGrid columns="2">
 				<h:outputLabel value="Día Inicio" />
-				<p:calendar id="inline" value="#{rutasCrearActualizar.fechaInicio}" mode="inline" />
+				<p:calendar id="inline" value="#{rutasCrearActualizar.fechaInicio}"
+					mode="inline" />
 			</p:panelGrid>
 
 			<p:panelGrid columns="2">
 				<h:outputLabel value="Día Fin" />
-				<p:calendar id="inline2" value="#{rutasCrearActualizar.fechaFin}" mode="inline" />
+				<p:calendar id="inline2" value="#{rutasCrearActualizar.fechaFin}"
+					mode="inline" />
 			</p:panelGrid>
 
 			<p:panelGrid columns="2">
 				<h:outputLabel value="Hora Inicio" />
-				<p:calendar id="time" value="#{rutasCrearActualizar.fechaInicio}" pattern="HH:mm" timeOnly="true" />
+				<p:calendar id="time" value="#{rutasCrearActualizar.fechaInicio}"
+					pattern="HH:mm" timeOnly="true" />
 			</p:panelGrid>
 
 			<p:panelGrid columns="2">
 				<h:outputLabel value="Hora Fin" />
-				<p:calendar id="time2" value="#{rutasCrearActualizar.fechaFin}" pattern="HH:mm" timeOnly="true" />
+				<p:calendar id="time2" value="#{rutasCrearActualizar.fechaFin}"
+					pattern="HH:mm" timeOnly="true" />
 			</p:panelGrid>
 
 			<p:panelGrid columns="2">
 				<h:outputLabel value="Número" />
-				<p:inputText binding="#{rutasCrearActualizar.numero}"/>
+				<p:inputText binding="#{rutasCrearActualizar.numero}" />
 			</p:panelGrid>
 		</p:panelGrid>
 
-		<p:commandButton value="Crear" actionListener="#{rutasCrearActualizar.crear()}"/>
-		<p:commandButton value="Actualizar" actionListener="#{rutasCrearActualizar.actualizar()}" />
-		<p:commandButton value="Borrar" actionListener="#{rutasCrearActualizar.eliminar()}"/>
+		<p:commandButton value="Crear"
+			actionListener="#{rutasCrearActualizar.crear()}" />
+		<p:commandButton value="Actualizar"
+			actionListener="#{rutasCrearActualizar.actualizar()}" />
+		<p:commandButton value="Borrar"
+			actionListener="#{rutasCrearActualizar.eliminar()}" />
 	</h:form>
 </body>
 </html>
