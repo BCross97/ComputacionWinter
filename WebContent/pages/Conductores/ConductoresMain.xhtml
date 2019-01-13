@@ -30,7 +30,7 @@
 					<f:selectItem itemLabel="Por cédula" itemValue="cedula" />
 				</p:selectOneMenu>
 			</h:panelGrid>
-			<h:commandButton action="#{conductor.searchBy()}" value="Buscar" />
+			<h:commandButton actionListener="#{conductor.searchBy()}" value="Buscar" />
 		</h:panelGrid>
 
 	</h:form>

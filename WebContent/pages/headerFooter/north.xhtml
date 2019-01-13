@@ -9,9 +9,14 @@
 	<ui:component>
 		<h:form>
 			<h:panelGrid style="margin-bottom: 20px" columns="3">
-				<h:commandButton type="submit" value="Rutas" />
-				<h:commandButton type="submit" value="Buses" />
-				<h:commandButton type="submit" value="Servicios" />
+				<h:commandButton value="Rutas"
+					actionListener="#{headerBean.redirectToRutas()}" />
+				<h:commandButton value="Buses"
+					actionListener="#{headerBean.redirectToBuses()}" />
+				<h:commandButton value="Servicios"
+					actionListener="#{headerBean.redirectToServicios()}" />
+
+
 			</h:panelGrid>
 		</h:form>
 	</ui:component>

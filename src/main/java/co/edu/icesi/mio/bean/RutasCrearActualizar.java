@@ -1,12 +1,15 @@
 package co.edu.icesi.mio.bean;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Date;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 
 import org.primefaces.component.inputtext.InputText;
 
@@ -39,14 +42,39 @@ public class RutasCrearActualizar implements Serializable {
 	}
 
 	public void crear() {
-
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+		try {
+			FacesContext.getCurrentInstance().getExternalContext()
+					.redirect(request.getContextPath() + "/pages/Rutas/RutasMainBean.xhtml");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void eliminar() {
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+		try {
+			FacesContext.getCurrentInstance().getExternalContext()
+					.redirect(request.getContextPath() + "/pages/Rutas/RutasMainBean.xhtml");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 
 	public void actualizar() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+		try {
+			FacesContext.getCurrentInstance().getExternalContext()
+					.redirect(request.getContextPath() + "/pages/Rutas/RutasMainBean.xhtml");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 
@@ -105,5 +133,4 @@ public class RutasCrearActualizar implements Serializable {
 	public void setHotaInicio(Date hotaInicio) {
 		this.hotaInicio = hotaInicio;
 	}
-
 }
