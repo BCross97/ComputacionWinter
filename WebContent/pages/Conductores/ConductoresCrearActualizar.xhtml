@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+
+	<ui:insert>
+		<ui:include src="/pages/headerFooter/north.xhtml" />
+	</ui:insert>
+
+	<h:form id="f1">
+		<h:outputLabel
+			value="Creación, actualización o eliminación de Conductores" />
+		<p:panelGrid columns="1">
+
+			<p:panelGrid columns="2">
+				<h:outputLabel value="#{conductor.ID}" />
+				<p:inputText />
+			</p:panelGrid>
+
+			<p:panelGrid columns="2">
+				<h:outputLabel value="Apellidos" />
+				<p:inputText />
+			</p:panelGrid>
+
+			<p:panelGrid columns="2">
+				<h:outputLabel value="Día Inicio" />
+				<p:calendar id="inline" value="" mode="inline" />
+			</p:panelGrid>
+
+			<p:panelGrid columns="2">
+				<h:outputLabel value="Día Fin" />
+				<p:calendar id="inline2" value="" mode="inline" />
+			</p:panelGrid>
+
+			<p:panelGrid columns="2">
+				<h:outputLabel value="Hora Inicio" />
+				<p:calendar id="time" value="" pattern="HH:mm" timeOnly="true" />
+			</p:panelGrid>
+
+			<p:panelGrid columns="2">
+				<h:outputLabel value="Hora Fin" />
+				<p:calendar id="time2" value="" pattern="HH:mm" timeOnly="true" />
+			</p:panelGrid>
+
+			<p:panelGrid columns="2">
+				<h:outputLabel value="Número" />
+				<p:inputText />
+			</p:panelGrid>
+		</p:panelGrid>
+
+		<p:commandButton value="Crear" />
+		<p:commandButton value="Actualizar" />
+		<p:commandButton value="Borrar" />
+	</h:form>
+</body>
+</html>

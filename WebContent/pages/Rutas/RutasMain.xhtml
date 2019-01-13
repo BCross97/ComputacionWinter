@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<h:form id="f1">
+		<h:outputLabel value="Rutas" />
+		<p:panelGrid columns="3">
+			<p:panelGrid columns="2">
+				<h:outputLabel value="Desde" />
+				<p:selectOneMenu value="#{rutasMainBean.seleccionDesde}"
+					style="width:125px">
+					<f:selectItem itemLabel="Seleccione desde" itemValue="" />
+					<f:selectItems value="#{rutasMainBean.listaDesde}" />
+				</p:selectOneMenu>
+			</p:panelGrid>
+			<p:panelGrid columns="2">
+				<h:outputLabel value="Hasta" />
+				<p:selectOneMenu value="#{rutasMainBean.seleccionHasta}"
+					style="width:125px">
+					<f:selectItem itemLabel="Seleccione hasta" itemValue="" />
+					<f:selectItems value="#{rutasMainBean.listaHasta}" />
+				</p:selectOneMenu>
+			</p:panelGrid>
+			<p:commandButton actionListener="#{rutasMainBean.buscar()}"
+				value="Buscar" />
+		</p:panelGrid>
+
+		<p:panelGrid columns="2">
+			<p:commandButton actionListener="#{rutasMainBean.crear()}"
+				value="Crear" />
+			<p:commandButton actionListener="#{rutasMainBean.actualizar()}"
+				value="Actualizar" />
+		</p:panelGrid>
+
+	</h:form>
+</body>
+</html>

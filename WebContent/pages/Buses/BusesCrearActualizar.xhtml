@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<h:form id="f1">
+		<h:outputLabel
+			value="Creación, actualización o eliminación de Conductores" />
+		<p:panelGrid columns="1">
+
+			<p:panelGrid columns="2">
+				<h:outputLabel value="Capacidad" />
+				<p:inputNumber />
+			</p:panelGrid>
+
+			<p:panelGrid columns="2">
+				<h:outputLabel value="Marca" />
+				<p:inputText />
+			</p:panelGrid>
+
+			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+				<p:outputLabel for="console" value="Modelo:" />
+				<p:selectOneMenu id="console" value="#{conductor.console}"
+					style="width:125px">
+					<f:selectItem itemLabel="Seleccione Modelo" itemValue="nombre" />
+				</p:selectOneMenu>
+			</h:panelGrid>
+
+			<p:panelGrid columns="2">
+				<h:outputLabel value="Placa" />
+				<p:inputText />
+			</p:panelGrid>
+
+			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+				<p:outputLabel for="console" value="Tipo:" />
+				<p:selectOneMenu id="console" value="#{conductor.console}"
+					style="width:125px">
+					<f:selectItem itemLabel="Seleccione tipo" itemValue="nombre" />
+					<f:selectItem itemLabel="Articulado" itemValue="nombre" />
+					<f:selectItem itemLabel="Alimentador" itemValue="nombre" />
+				</p:selectOneMenu>
+			</h:panelGrid>
+		</p:panelGrid>
+
+		<p:commandButton value="Crear" />
+		<p:commandButton value="Actualizar" />
+		<p:commandButton value="Borrar" />
+	</h:form>
+</body>
+</html>
