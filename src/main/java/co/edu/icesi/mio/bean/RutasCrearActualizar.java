@@ -54,6 +54,7 @@ public class RutasCrearActualizar implements Serializable {
 		ruta.setHoraFin(new BigDecimal(horaFin.getTime()));
 		ruta.setHoraInicio(new BigDecimal(hotaInicio.getTime()));
 		rutasLogic.create(ruta);
+		System.out.println("pasa el crear");
 //		FacesContext context = FacesContext.getCurrentInstance();
 //		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
 //		try {
