@@ -16,7 +16,7 @@ public class Tmio1Ruta implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name = "TMIO1_RUTAS_ID_GENERATOR", sequenceName = "TMIO1_RUTAS_SEC")
+	@SequenceGenerator(name = "TMIO1_RUTAS_ID_GENERATOR", sequenceName = "SEC_TMIO1_RUTAS")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TMIO1_RUTAS_ID_GENERATOR")
 	private Integer id;
 

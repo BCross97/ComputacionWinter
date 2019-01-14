@@ -12,6 +12,7 @@ import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import co.edu.icesi.mio.dao.ITmio1_Rutas_DAO;
 import co.edu.icesi.mio.dao.Tmio1_Rutas_DAO;
 import co.edu.icesi.mio.model.Tmio1Ruta;
 
@@ -24,7 +25,7 @@ public class Tmio1_Rutas_Logic implements ITmio1_Rutas_Logic {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	private Tmio1_Rutas_DAO rutasDAO;
+	private ITmio1_Rutas_DAO rutasDAO;
 
 	@Override
 	public List<Tmio1Ruta> searchByDayRange(BigDecimal firstDay, BigDecimal lastDay) {
@@ -40,16 +41,19 @@ public class Tmio1_Rutas_Logic implements ITmio1_Rutas_Logic {
 
 	@Override
 	public boolean create(Tmio1Ruta ruta) {
-		// TODO Auto-generated method stub
-		if (rutasDAO.findById(entityManager, ruta.getId()) != null)
-			return false;
+		System.out.println("Check2");
+		rutasDAO = new Tmio1_Rutas_DAO();
+//		if (rutasDAO.findById(entityManager, ruta.getId()) != null)
+//			return false;
 		try {
 			rutasDAO.save(entityManager, ruta);
 		} catch (Exception e) {
+			System.out.println("Catched");
+			e.printStackTrace();
 			return false;
 		}
-		if (rutasDAO.findById(entityManager, ruta.getId()) != null)
-			return true;
+//		if (rutasDAO.findById(entityManager, ruta.getId()) != null)
+//			return true;
 		return false;
 	}
 

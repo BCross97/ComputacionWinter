@@ -45,16 +45,22 @@ public class RutasCrearActualizar implements Serializable {
 
 	public void crear() {
 
-		Tmio1Ruta ruta = new Tmio1Ruta();
-		ruta.setActiva(activa.getValue().toString());
-		ruta.setDescripcion(descripcion.getValue().toString());
-		ruta.setNumero(numero.getValue().toString());
-		ruta.setDiaFin(new BigDecimal(fechaFin.getDay()));
-		ruta.setDiaInicio(new BigDecimal(fechaInicio.getDay()));
-		ruta.setHoraFin(new BigDecimal(horaFin.getTime()));
-		ruta.setHoraInicio(new BigDecimal(hotaInicio.getTime()));
-		rutasLogic.create(ruta);
-		System.out.println("pasa el crear");
+		try {
+			Tmio1Ruta ruta = new Tmio1Ruta();
+			ruta.setActiva(activa.getValue().toString());
+			ruta.setDescripcion(descripcion.getValue().toString());
+			ruta.setNumero(numero.getValue().toString());
+			System.out.println("Check");
+			ruta.setDiaFin(new BigDecimal(fechaFin.getDay()));
+			ruta.setDiaInicio(new BigDecimal(fechaInicio.getDay()));
+			ruta.setHoraInicio(new BigDecimal(1));
+			ruta.setHoraFin(new BigDecimal(2));
+			if (hotaInicio != null)
+				ruta.setHoraInicio(new BigDecimal(hotaInicio.getTime()));
+			if (horaFin != null)
+				ruta.setHoraFin(new BigDecimal(horaFin.getTime()));
+			rutasLogic.create(ruta);
+			System.out.println("pasa el crear");
 //		FacesContext context = FacesContext.getCurrentInstance();
 //		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
 //		try {
@@ -63,10 +69,16 @@ public class RutasCrearActualizar implements Serializable {
 //		} catch (IOException e) {
 //			e.printStackTrace();
 //		}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println("No grabo");
+		}
 	}
 
 	public void eliminar() {
-		
+
 		FacesContext context = FacesContext.getCurrentInstance();
 		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
 		try {
